@@ -12,11 +12,13 @@ import javax.annotation.Resource;
 @RequestMapping("test")
 public class TestController {
     @Resource
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
 
     @RequestMapping("testRedis")
     @ResponseBody
     public String testRedis(@RequestParam String key) {
-        return (String) redisTemplate.opsForValue().get(key);
+        String value = (String) redisTemplate.opsForValue().get(key);
+        System.out.println(value);
+        return (value);
     }
 }
