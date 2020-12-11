@@ -1,0 +1,12 @@
+server:
+  servlet:
+    context-path: /test-redis
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    jedis:
+      pool:
+        min-idle: 4
+        max-idle: 100
