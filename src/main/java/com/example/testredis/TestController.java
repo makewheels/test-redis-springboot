@@ -17,7 +17,6 @@ public class TestController {
     @RequestMapping("testRedis")
     @ResponseBody
     public String testRedis(@RequestParam String key) {
-        System.out.println(redisTemplate.opsForValue().get("abc"));
         return (String) redisTemplate.opsForValue().get(key);
     }
 }
