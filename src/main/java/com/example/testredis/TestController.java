@@ -14,11 +14,10 @@ public class TestController {
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
-    @RequestMapping("testRedis")
+    @RequestMapping("get")
     @ResponseBody
-    public String testRedis(@RequestParam String key) {
-        String value = (String) redisTemplate.opsForValue().get(key);
-        System.out.println(value);
-        return (value);
+    public String get(@RequestParam String key) {
+        redisTemplate.opsForValue().set("hello", "world");
+        return (String) redisTemplate.opsForValue().get(key);
     }
 }
